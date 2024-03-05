@@ -30,18 +30,17 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{% url 'home' %}">All Products</a></li>
                             <li><hr class="dropdown-divider" /></li>
-                            {% for category in categorys %}
-                                <li><a class="dropdown-item" href="{% url 'category' %}">{{ category.category }}</a></li>
-                            {% endfor %}
+                            <li><a class="dropdown-item" href="{% url 'category' 'Luxury-Car' %}">Luxury Car</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'Sport-Car' %}">Sport Car</a></li>
                         </ul>
                     </li>
                 </ul>
                 <form class="d-flex" id="cart_button">
-                    <button class="btn btn-outline-dark" type="submit" >
-                        <i class="bi-cart-fill me-1"></i>
+                    <a href="{% url 'cart_summary' %}"  class="btn btn-outline-dark">
+                       <i class="bi-cart-fill me-1"></i>
                         Cart
-                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                    </button>
+                        <span class="badge bg-dark text-white ms-1 rounded-pill">0</span> 
+                    </a>
                 </form>
             </div>
         </div>
