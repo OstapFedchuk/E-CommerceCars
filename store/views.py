@@ -1,11 +1,32 @@
 from django.shortcuts import render, redirect
-from .models import Product
+from .models import Product, Category
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm
 from django import forms
+
+
+
+def product(request, pk):
+    product = Product.objects.get(id=pk)
+    return render(request, 'product.html', {'product': product})
+
+def category(request, foo):
+    foo = foo.replace('-', ' ') #Sostituisce lo spazio con il trattino
+    #Prendiamo la categoria dall'url
+    try:
+        #recupero nome categoria
+        category = Category.objects.get(name=foo)
+        products = Product.objects.filter(category=category)
+        return render(request, 'category.html', {'products': products, 'category':category})
+    except:
+        messages.success(request, ("That Category Doesn't Exist..."))
+        return redirect('home')
+        
+    
+
 
 def home(request):
     products = Product.objects.all()
