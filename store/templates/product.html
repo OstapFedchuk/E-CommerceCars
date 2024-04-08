@@ -30,14 +30,46 @@
                     <h5>{{ product.sale_price }}€</h5>
                 {% else %}
                     <h5>{{ product.price }}€</h5><br>
+                    <h5>ID:{{ product.id }}</h5><br>
                 {% endif %}
 
                 <a href="{% url 'home' %}" class="btn btn-secondary">Home</a>
+                <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">Add To Cart</button>
             </center>
         </div>
       </div>
     </div>
   </div>
 
+
+<!--- Javascript per il bottone di aggiungere al carrello -->
+<script>
+//Controllo se il bottone è stato schiacciato
+$(document).on('click', '#add-cart', function(e) {
+  e.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url: '{% url "cart_add" %}', 
+    data: {
+      product_id: $('#add-cart').val(),
+      csrfmiddlewaretoken: '{{ csrf_token }}',
+      action: 'post'
+    },
+
+    success: function(json) {
+      console.log(json)
+      document.getElementById("cart_quantity").textContent = json.qty
+    },
+
+    error: function(xhr, errmsg, err) {
+      
+    }
+
+  });
+
+})
+
+
+</script>
 
 {% endblock %}
