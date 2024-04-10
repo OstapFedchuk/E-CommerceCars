@@ -8,7 +8,8 @@ def cart_summary(request):
     #Ottengo il carrello
     cart = Cart(request)
     cart_products = cart.get_prods()
-    return render(request, 'car_summary.html', {"car_products":cart_products})
+    quantities = cart.get_quants()
+    return render(request, 'cart_summary.html', {"cart_products":cart_products, "quantities":quantities})
 
 
 def cart_add(request):
@@ -18,12 +19,13 @@ def cart_add(request):
     if request.POST.get('action') == 'post':
         #ottengo la "roba"
         product_id = int(request.POST.get('product_id'))
+        product_qty = int(request.POST.get('product_qty'))
         
         #Cerco il prodotto nel DB
         product = get_object_or_404(Product, id=product_id)
         
         #Salvataggio nella sessione
-        cart.add(product=product)
+        cart.add(product=product, quantity=product_qty)
 
         #Ottengo la quantità di oggetti contenuti nel carrello
         cart_quantity = cart.__len__()
