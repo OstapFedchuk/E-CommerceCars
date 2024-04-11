@@ -27,6 +27,30 @@ class Cart():
 
         self.session.modified = True
 
+    def cart_total(self):
+        #Ottengo ID del prodotto
+        product_ids = self.cart.keys()
+        #Cerco "quelle" keys nel nostro modello dei prodotti all'interno del DB
+        products = Product.objects.filter(id__in=product_ids)
+        #Ottengo le quantità dei prodotti
+        quantities = self.cart
+        #Contatore del totale
+        total = 0
+        for key, value in quantities.items():
+            #Converto la string key in un int cosi da poter eseguire i calcoli
+            key = int(key)
+            for product in products:
+                if product.id == key:
+                    if product.is_sale:
+                        total = total + (product.sale_price * value)
+                    else:
+                        total = total + (product.price * value)
+
+        return total 
+    
+
+
+
     #Funzione che restituisce la lunghezza del carrello, cioè la quantità degli oggetti contenenti in essa
     def __len__(self):
         return len(self.cart)
@@ -43,7 +67,7 @@ class Cart():
     #Funzione che ritorna il numero di prodotti scelti
     def get_quants(self):
         quantities = self.cart
-        return quantities
+        return quantities 
     
     def update(self, product, quantity):
         product_id = str(product)
