@@ -4,10 +4,6 @@
 
 <style>
 
-    form {
-        width: 100%;
-        margin-left: 5vh;
-    }
 
 </style>
 
@@ -30,11 +26,9 @@
                     <br><br>
                     <form method="POST" action="{% url 'register' %}">
                         {% csrf_token %}
-                        <center>
                             {{ form.as_p }}
                             <br><br>
                             <button type="submit" class="btn btn-secondary">Register</button>
-                        </center>
                         
                       </form>
 
