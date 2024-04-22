@@ -6,13 +6,21 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm, UserInfoForm
 from django import forms
-
+import json
+from cart.cart import Cart
 
 def search(request):
     #Controllo se il form è stato compilato
     if request.method == "POST":
         searched = request.POST['searched']
-        return render(request, "search.html", {'searched':searched})
+        #Un passaggio che permetterà di recuperare dal DB il prodotto adatto in base al testo scritto all'interno del form
+        searched = Product.objects.filter(name__icontains=searched)
+        #
+        if not searched:
+            messages.success(request, "That Product Don't Exist!!!")
+            return render(request, "search.html", {})
+        else:
+            return render(request, "search.html", {'searched':searched})    
     else:
         return render(request, "search.html", {})
 
@@ -109,6 +117,19 @@ def login_user(request):
         user  = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
+
+            #Delle 'cose' per il carrello
+            current_user = Profile.objects.get(user__id=request.user.id)
+            #Ottenimento carrello dell'utente
+            saved_cart = current_user.old_cart
+            #COnverto la string del DB in dictionary di python usando JSON
+            if saved_cart:
+                converted_cart = json.loads(saved_cart)
+                #Aggiungo il carrello convertito alla sessione corrente
+                cart = Cart(request)
+                for key, value in converted_cart.items():
+                    cart.db_add(product=key, quantity=value)
+
             messages.success(request, ("You have been logged in!"))
             return redirect('home')
         else:
