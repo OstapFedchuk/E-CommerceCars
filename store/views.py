@@ -5,6 +5,11 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm, UserInfoForm
+
+from payment.forms import ShippingForm
+
+from payment.models import ShippingAddress
+
 from django import forms
 import json
 from cart.cart import Cart
@@ -18,7 +23,7 @@ def search(request):
         #
         if not searched:
             messages.success(request, "That Product Don't Exist!!!")
-            return render(request, "search.html", {})
+            return render(request, "search.html", {})    
         else:
             return render(request, "search.html", {'searched':searched})    
     else:
@@ -28,15 +33,24 @@ def search(request):
 
 def update_info(request):
     if request.user.is_authenticated:
+        #Ottenimento del'User corrente
         current_user = Profile.objects.get(user__id=request.user.id)
+        #Ottenimento dei dati di Shipping dell'User corrente
+        shipping_user = ShippingAddress.objects.get(user__id=request.user.id)
+
+        #Ottengo il form classico dell'User
         form = UserInfoForm(request.POST or None, instance=current_user)
+        #Ottengo il form di Shipping dell'User
+        shipping_form = ShippingForm(request.POST or None, instance=shipping_user)
 
-        if form.is_valid():
+        if form.is_valid() or shipping_form.is_valid():
+            #Salvo il form originale
             form.save()
-
+            #Salvo il shipping form 
+            shipping_form.save()
             messages.success(request, "Your Info has been Updated!!!")
             return redirect('home')
-        return render(request, "update_info.html", {'form': form})
+        return render(request, "update_info.html", {'form': form, 'shipping_form':shipping_form })
     else:
         messages.success(request, "You must be logged in to access that page!!!")
         return redirect('home') 

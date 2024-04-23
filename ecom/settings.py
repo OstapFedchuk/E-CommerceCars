@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #nome dell'app che abbiamo creato
     'store',
     'cart',
+    'payment',
 ]
 
 MIDDLEWARE = [
