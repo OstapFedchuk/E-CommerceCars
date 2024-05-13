@@ -13,3 +13,9 @@ Installazione
 10. Avviare il server di sviluppo: python manage.py runserver
 11. Accedere all'applicazione su http://localhost:8000
 12. Per accedere alla pagina di administration(quindi per accedere al DB) occorre andare su http://localhost:8000/admin e poi come credenziali mettere User:admin, pass:admin
+
+GRUPPO: 
+Fedchuk Ostap(CapoGruppo): creazione base del WebApp, codice in python per le funzionalità/features del sito, gestione DB e Admin Page (estrazione/importazione dati), parte Front-End e Back-End del sito
+Lazzaro Michael: scelta stile del sito, parte di HTML e CSS, creazione del file "models.py" con poi eventuali aiuti da parte del CapoGruppo
+Susino Giacomo: scelta stile del sito, parte di HTML e CSS, creazione del file forms.py" con poi eventuali aiuti da parte del CapoGruppo
+Delponte Giuseppe: scelta stile del sito, parte di HTML e CSS, creazione del file "urls.py" con poi eventuali aiuti da parte del CapoGruppo
