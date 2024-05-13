@@ -1,6 +1,7 @@
 Installazione
-
-Clonare il repository: git clone https://github.com/yourusername/django-ecommerce.git
+Scaricare il file zip(il progetto) esempio di percorso: "C:\Users\nomeUser\Desktop\ecomm-django.zip"
+Estrarre tutto il contenuto fuori dalla cartella zi scaricata, esempio ""C:\Users\ostap\Desktop\"
+Aprire la cartella con un editor di codice, VSCode preferibilmente.
 Navigare nella directory del progetto: cd django-ecommerce
 Creare un ambiente virtuale: python -m venv env
 Attivare l'ambiente virtuale:
