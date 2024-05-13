@@ -2,7 +2,7 @@ Installazione e Configurazione
 1. Scaricare il file zip(il progetto) esempio di percorso: "C:\Users\nomeUser\Desktop\ecomm-django.zip"
 2. Estrarre tutto il contenuto fuori dalla cartella zip scaricata, esempio "C:\Users\nomeUser\Desktop\"
 3. Aprire la cartella con un editor di codice, VSCode preferibilmente.
-4. Navigare nella directory del progetto, esempio "C:\Users\ostap\Desktop\ecom-django", usare il comando "cd ecom-django"
+4. Navigare nella directory del progetto, esempio "C:\Users\ostap\Desktop\nome-progetto", usare il comando "cd nome-progetto"
 5. Verificare la versione di python con: py --version (se non è scaricalo su https://www.python.org/downloads/)
 6. Installare Django: pip install django
 7. Creare un ambiente virtuale: python -3 -m venv virt
