@@ -1,4 +1,4 @@
-Installazione
+Installazione e Configurazione
 1. Scaricare il file zip(il progetto) esempio di percorso: "C:\Users\nomeUser\Desktop\ecomm-django.zip"
 2. Estrarre tutto il contenuto fuori dalla cartella zip scaricata, esempio "C:\Users\nomeUser\Desktop\"
 3. Aprire la cartella con un editor di codice, VSCode preferibilmente.
