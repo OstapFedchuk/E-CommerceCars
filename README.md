@@ -8,9 +8,7 @@ Installazione
 7. Creare un ambiente virtuale: python -3 -m venv virt
 8. Attivare l'ambiente virtuale:
    Su Windows: .\virt\Scripts\activate
-   Su macOS e Linux: source env/bin/activate
+   Su macOS e Linux: source virt/bin/activate
 9. Entrare nela cartella ecom: cd ecom
-10. Eseguire le migrazioni: python manage.py migrate
-11. Creare un superuser: python manage.py createsuperuser
-12. Avviare il server di sviluppo: python manage.py runserver
-13. Accedere all'applicazione su http://localhost:8000
+10. Avviare il server di sviluppo: python manage.py runserver
+11. Accedere all'applicazione su http://localhost:8000
