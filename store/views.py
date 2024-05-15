@@ -7,7 +7,6 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import SignUpForm, UpdateUserForm, ChangePasswordForm, UserInfoForm
 
 from payment.forms import ShippingForm
-
 from payment.models import ShippingAddress
 
 from django import forms
