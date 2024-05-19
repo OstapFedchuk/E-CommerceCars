@@ -30,7 +30,7 @@
                                 
                                 <small>Quantity:
                                 {% for key, value in quantities.items %}
-                                    {% if key == product.id|slugify %}
+                                    {% if key == product.id|slugify %}.
                                         {{ value }}
                                     {% endif %}</small> 
                                 {% endfor %}
