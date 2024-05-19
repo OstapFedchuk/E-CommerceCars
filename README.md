@@ -17,5 +17,5 @@ Installazione e Configurazione
 GRUPPO: 
 1. Fedchuk Ostap(CapoGruppo): creazione base del WebApp, codice in python per le funzionalità/features del sito, gestione DB e Admin Page (estrazione/importazione dati), parte Front-End e Back-End del sito
 2. Lazzaro Michael: scelta stile del sito, parte di HTML e CSS, creazione del file "models.py", creazione "about.html" con poi eventuali aiuti da parte del CapoGruppo
-3. Susino Giacomo: scelta stile del sito, parte di HTML e CSS, creazione del file "forms.py", fonte di tutte le immagini delle macchine, con poi eventuali aiuti da parte del CapoGruppo
+3. Susino Giacomo: scelta stile del sito, parte di HTML e CSS, creazione del file "forms.py", scelta delle immagini per i prodotti, con poi eventuali aiuti da parte del CapoGruppo
 4. Delponte Giuseppe: scelta stile del sito, parte di HTML e CSS, creazione del file "urls.py" con poi eventuali aiuti da parte del CapoGruppo
