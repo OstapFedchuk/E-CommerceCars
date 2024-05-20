@@ -5,7 +5,7 @@ Installazione e Configurazione
 4. Navigare nella directory del progetto, esempio "C:\Users\ostap\Desktop\nome-progetto", usare il comando "cd nome-progetto"
 5. Verificare la versione di python con: py --version (se non è scaricalo su https://www.python.org/downloads/)
 6. Installare Django: pip install django
-7. Creare un ambiente virtuale: python -3 -m venv virt
+7. Creare un ambiente virtuale: python 3 -m venv virt
 8. Attivare l'ambiente virtuale:
    Su Windows: .\virt\Scripts\activate
    Su macOS e Linux: source virt/bin/activate
