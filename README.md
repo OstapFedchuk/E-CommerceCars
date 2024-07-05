@@ -4,7 +4,7 @@ Installazione e Configurazione
 3. Aprire la cartella con un editor di codice, VSCode preferibilmente.
 4. Navigare nella directory del progetto, esempio "C:\Users\ostap\Desktop\nome-progetto", usare il comando "cd nome-progetto"
 5. Verificare la versione di python con: py --version (se non è scaricalo su https://www.python.org/downloads/)
-6. Installare Django: pip install django
+6. Installare Django: py -m pip install Django
 7. Creare un ambiente virtuale: python 3 -m venv virt
 8. Attivare l'ambiente virtuale:
    Su Windows: .\virt\Scripts\activate
